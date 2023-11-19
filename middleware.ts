@@ -1,6 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
+  // Test a redirect before without setting pathname
+  if (request.cookies.get("google")) {
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.host = "google.com";
+    redirectUrl.port = "80";
+    return NextResponse.redirect(redirectUrl);
+  }
+
+  // Test a redirect and set pathname
+  if (request.cookies.get("about")) {
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.host = "google.com";
+    redirectUrl.port = "80";
+    redirectUrl.pathname = "/about";
+    return NextResponse.redirect(redirectUrl);
+  }
+
   const { pathname } = request.nextUrl;
 
   // Redirect from /redirect-from to /redirect-to

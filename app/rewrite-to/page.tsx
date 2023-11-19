@@ -1,3 +1,4 @@
+import Options from '@/components/options';
 import styles from '../page.module.css';
 
 export default function Home() {
@@ -22,27 +23,8 @@ export default function Home() {
         <h2>/rewrite-to</h2>
       </div>
 
-      <div className={styles.grid}>
-        <a
-          href="/redirect-from"
-          className={styles.card}
-        >
-          <h2>
-            Redirect <span>-&gt;</span>
-          </h2>
-          <p>Go to /redirect-from</p>
-        </a>
+      <Options />
 
-        <a
-          href="/rewrite-from"
-          className={styles.card}
-        >
-          <h2>
-            Rewrite <span>-&gt;</span>
-          </h2>
-          <p>Go to /rewrite-from</p>
-        </a>
-      </div>
     </main>
   )
 }
