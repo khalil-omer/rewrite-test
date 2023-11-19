@@ -25,35 +25,6 @@ export default function Options() {
         <p>Go to /rewrite-from</p>
       </a>
 
-      <a
-        href="/set-cookie"
-        className={styles.card}
-        onClick={(e) => {
-          // Set your cookie here
-
-          document.cookie = "hello=world; path=/;";
-
-        }}
-      >
-        <h2>
-          Redirect w/ cookie           </h2>
-        <p>Go to /set-cookie but first set cookie google</p>
-      </a>
-
-      <a
-        href="/set-cookie"
-        className={styles.card}
-        onClick={(e) => {
-          // Set your cookie here
-
-          document.cookie = "about=world; path=/;";
-
-        }}
-      >
-        <h2>
-          Redirect w/ cookie            </h2>
-        <p>Go to /set-cookie but first set cookie about</p>
-      </a>
 
 
     </div>

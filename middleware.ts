@@ -1,27 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-  // Test a redirect before without setting pathname
-  if (request.cookies.get("google")) {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.host = "google.com";
-    redirectUrl.port = "80";
-    return NextResponse.redirect(redirectUrl);
-  }
-
-  // Test a redirect and set pathname
-  if (request.cookies.get("about")) {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.host = "google.com";
-    redirectUrl.port = "80";
-    redirectUrl.pathname = "/about";
-    return NextResponse.redirect(redirectUrl);
-  }
-
   const { pathname } = request.nextUrl;
+
+  console.log(`Middleware activated with pathname: ${pathname}`);
 
   // Redirect from /redirect-from to /redirect-to
   if (pathname === "/redirect-from") {
+    console.log("Redirecting from /redirect-from to /redirect-to");
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = "/redirect-to";
     return NextResponse.redirect(redirectUrl);
@@ -29,10 +15,13 @@ export function middleware(request: NextRequest) {
 
   // Rewrite from /rewrite-from to /rewrite-to
   if (pathname === "/rewrite-from") {
+    console.log("Rewriting from /rewrite-from to /rewrite-to");
     const rewriteUrl = request.nextUrl.clone();
     rewriteUrl.pathname = "/rewrite-to";
     return NextResponse.rewrite(rewriteUrl);
   }
+
+  console.log("No rewrites or redirects applied. Continuing with request.");
 
   // For all other routes, continue with the request
   return;
