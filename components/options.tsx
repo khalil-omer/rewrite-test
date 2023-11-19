@@ -37,7 +37,7 @@ export default function Options() {
       >
         <h2>
           Redirect w/ cookie           </h2>
-        <p>Go to /set-cookie but first set cookie 'google'</p>
+        <p>Go to /set-cookie but first set cookie google</p>
       </a>
 
       <a
@@ -52,7 +52,7 @@ export default function Options() {
       >
         <h2>
           Redirect w/ cookie            </h2>
-        <p>Go to /set-cookie but first set cookie 'about'</p>
+        <p>Go to /set-cookie but first set cookie about</p>
       </a>
 
 
